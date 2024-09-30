@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Todo List Project</title>
+</head>
+
+<body>
+    <div id="to-do">
+        <div class="container" :style="{ backgroundColor : bgColor }">
+            <button class="colorbtn" v-on:click="changeContainerBgColor('#e6e6fa')">Light</button>
+            <button class="colorbtn" v-on:click="changeContainerBgColor('#c0c0c0')">Silver</button>
+            <button class="colorbtn" v-on:click="changeContainerBgColor('#483d8b')">Dark</button>
+
+
+            <p class="title">{{title}}</p>
+
+            <input v-model="newTask" v-on:keyup.enter="addNew()" placeholder="Add A Task">
+            <button class="addbtn" v-on:click="addNew()">I Got This!</button>
+
+            <div class="tasks">
+                <ul>
+                    <li v-for="(todo, index) in todos" :key="index" v-bind:class="{ status: todo.status }">
+                        {{ todo.task }}
+                        <div class="buttons">
+                            <button v-on:click="changeStatus(todo)"><i class="fa fa-check"></i></button>
+                            <button v-on:click="removeTask(index)"><i class="fa fa-trash"></i></button>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
