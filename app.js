@@ -43,19 +43,8 @@ createApp({
         this.loadTasks();
         console.log("mounted");
     },
-    unMounted(){
-        console.log("unMounted");
-    },
-    beforeMount(){
-        console.log("beforeMount");
-    },
+   
 
 
 }).mount("#to-do");
 
-
-
-function cikar({ sayi1, sayi2 }) {
-    return sayi1 - sayi2;
-}
-cikar({ sayi2: 5, sayi1: 3, farkin2kati: (fark) => fark * 2, farkin3kati: function (fark) { return fark * 3 } });
